@@ -1,19 +1,23 @@
 <script setup lang="ts">
-
+const random = [
+  Math.random(),
+  Math.random(),
+  Math.random(),
+  Math.random(),
+  Math.random(),
+  Math.random(),
+]
 </script>
 <template>
   Hello index page:
   <div class="flex flex-col gap-2">
-    <NuxtLink to="/test1">Test1</NuxtLink>
-    <NuxtLink to="/test2">Test2</NuxtLink>
-    <NuxtLink to="/test3">Test3</NuxtLink>
-    <NuxtLink to="/test4">Test4</NuxtLink>
-    <NuxtLink to="/test5">Test5</NuxtLink>
-    <NuxtLink to="/test6">Test6</NuxtLink>
-    <NuxtLink to="/test7">Test7</NuxtLink>
-    <NuxtLink to="/test8">Test8</NuxtLink>
-    <NuxtLink to="/test9">Test9</NuxtLink>
-    <NuxtLink to="/test10">Test10</NuxtLink>
+    <NuxtLink
+      v-for="i in random"
+      :key="i"
+      :to="`/${i}`"
+    >
+      Page random: {{ i }}
+    </NuxtLink>
   </div>
 </template>
 
